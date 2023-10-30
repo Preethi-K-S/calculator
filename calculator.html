@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+<style>
+    *{
+        margin: 0px;
+        padding: 0px;
+    }
+    body{
+        background-color: beige;
+    }
+    .container{
+     height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      
+    }
+    #calculator{
+        display: grid;
+        grid-template-columns: repeat(4,80px);
+        border-radius: 10px;
+        column-gap: 5px;
+        row-gap: 5px;
+        border: 2px solid black;
+        padding: 20px;
+        background-color: rgb(245, 221, 191);
+       
+    }
+    input{
+        grid-column: span 4;
+        height: 50px;
+        text-align: right;
+        font-weight: bolder;
+        font-size: 40px;
+        padding: 10px;
+        border: 2px solid black;
+        border-radius: 10px 10px;
+    
+       
+    }
+    button{
+        padding: 8px;
+        border-radius: 5px;
+        background-color: rgb(238, 238, 238);
+        cursor: pointer;
+    }
+    button:active{
+        background-color: #93d8ec;
+    }
+</style>
+<body>
+    <div class="container">
+        <div id="calculator">
+            <input type="text" placeholder="0" id="output">
+            <button onclick="cl()">cl</button>
+            <button onclick="del()">del</button>
+            <button onclick="display('%')">%</button>
+            <button onclick="display('/')">/</button>
+            <button onclick="display('7')">7</button>
+            <button onclick="display('8')">8</button>
+            <button onclick="display('9')">9</button>
+            <button onclick="display('*')">*</button>
+            <button onclick="display('4')">4</button>
+            <button onclick="display('5')">5</button>
+            <button onclick="display('6')">6</button>
+            <button onclick="display('+')">+</button>
+            <button onclick="display('1')">1</button>
+            <button onclick="display('2')">2</button>
+            <button onclick="display('3')">3</button>
+            <button onclick="display('-')">-</button>
+             <button onclick="display('0')">0</button>
+            <button onclick="display('.')">.</button>
+            <button onclick="calculate()" style="grid-column: span 2;">=</button>
+
+             </div>
+
+    </div>
+</body>
+<script>
+    let outputscreen=document.getElementById("output")
+    function display(num){
+        outputscreen.value =outputscreen.value+num
+    }
+    
+    function calculate(){
+        try{
+            outputscreen.value=eval(outputscreen.value)
+        }
+        catch(e)
+        {
+            alert("invalid")
+        }
+    }
+  function del(){
+    outputscreen.value=outputscreen.value.slice(0,-1)
+
+  }
+  function cl(){
+    outputscreen.value=""
+  }
+</script>
+</html>
